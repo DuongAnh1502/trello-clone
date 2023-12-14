@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 
 import { cn } from "@/lib/utils";
 
-const headingFont = localFont({ src: "../../public/fonts/font.woff2" });
+const headingFont = localFont({ src: "../public/fonts/font.woff2" });
 export const Logo = () => {
     return (
         <Link href='/'>
