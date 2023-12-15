@@ -2,7 +2,7 @@ import { Plus } from "lucide-react";
 
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { OrganizationSwitcher } from "@clerk/nextjs";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 export const Navbar = () => {
     return (
@@ -27,6 +27,26 @@ export const Navbar = () => {
                     afterCreateOrganizationUrl='/organization/:id'
                     afterLeaveOrganizationUrl='/select-org'
                     afterSelectOrganizationUrl='/organization/:id'
+                    appearance={{
+                        elements: {
+                            rootBox: {
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            },
+                        },
+                    }}
+                />
+                <UserButton
+                    afterSignOutUrl='/'
+                    appearance={{
+                        elements: {
+                            avatarBox: {
+                                height: 30,
+                                width: 30,
+                            },
+                        },
+                    }}
                 />
             </div>
         </nav>
