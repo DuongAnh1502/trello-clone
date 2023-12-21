@@ -24,13 +24,6 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
     const { userMemberships, isLoaded: isLoadedOrgList } = useOrganizationList({
         userMemberships: { infinite: true },
     });
-    // const defaultAccordionValue: string[] = Object.keys(expanded).reduce(
-    //     (acc: string[], key: string) => {
-    //         if (expanded[key]) acc.push(key);
-    //         return acc;
-    //     },
-    //     []
-    // );
     const defaultAccordionValue: string[] = Object.keys(expanded).filter(
         (key: string) => expanded[key]
     );
@@ -40,7 +33,15 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
     if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
         return (
             <>
-                <Skeleton />
+                <div className='flex items-center justify-between mb-2'>
+                    <Skeleton className='h-10 w-[50%]' />
+                    <Skeleton className='h-10 w-10' />
+                </div>
+                <div className='space-y-2'>
+                    <NavItem.Skeleton />
+                    <NavItem.Skeleton />
+                    <NavItem.Skeleton />
+                </div>
             </>
         );
     }
