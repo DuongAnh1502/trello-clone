@@ -1,4 +1,10 @@
 const OrganizationIdPage = () => {
-    return <div>Organization Page</div>;
+    return (
+        <div>
+            <form>
+                <input id='title' name='title' required />
+            </form>
+        </div>
+    );
 };
 export default OrganizationIdPage;
