@@ -5,7 +5,7 @@ export type FieldErrors<T> = {
 
 export type ActionState<TInput, TOutput> = {
     filedsErrors?: FieldErrors<TInput>;
-    error?: string[] | null;
+    error?: string | null;
     data?: TOutput;
 };
 
