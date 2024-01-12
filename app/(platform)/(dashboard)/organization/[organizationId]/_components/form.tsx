@@ -3,6 +3,7 @@
 import { createBoard } from "@/actions/create-boards";
 import { Button } from "@/components/ui/button";
 import { useAction } from "@/hooks/use-action";
+import { FormInput } from "@/components/form/form-input";
 
 export const Form = () => {
     const { execute, fieldErrors } = useAction(createBoard, {
@@ -18,19 +19,17 @@ export const Form = () => {
         execute({ title });
     };
     return (
-        <div>
-            <form action={onSubmit}>
-                <input
+        <form action={onSubmit}>
+            <div className='flex flex-col space-y-2'>
+                <FormInput
+                    label='Board Title'
                     id='title'
-                    name='title'
-                    placeholder='Enter a board title'
-                    className='border-black border p-1'
+                    errors={fieldErrors}
                 />
-                <Button type='submit'>Submit</Button>
-            </form>
-            <p className='space-y-1 text-rose-500 text-sm'>
-                {fieldErrors?.title}
-            </p>
-        </div>
+            </div>
+            <Button type='submit' size='sm'>
+                Submit
+            </Button>
+        </form>
     );
 };
