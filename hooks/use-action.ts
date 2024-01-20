@@ -30,9 +30,7 @@ export const useAction = <TInput, TOutput>(
                 if (!result) {
                     return;
                 }
-                if (result.filedsErrors) {
-                    setFieldErrors(result.filedsErrors);
-                }
+                setFieldErrors(result.filedsErrors);
                 if (result.error) {
                     setError(result.error);
                     options.onError?.(result.error);
